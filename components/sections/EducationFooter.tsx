@@ -61,7 +61,7 @@ export default function EducationFooter() {
         onMouseLeave={() => window.dispatchEvent(new CustomEvent("cursor-hover", { detail: { hover: false } }))}
       >
         <p className="font-mono font-bold mb-6 text-[#00F0FF] tracking-[0.5em] text-sm uppercase drop-shadow-[0_0_8px_rgba(0,240,255,0.5)]">
-          // SIGNAL READY
+          // SOFTWARE ENGINEER
         </p>
         
         <h1 className="flex flex-col text-[11vw] font-black uppercase leading-[0.85] tracking-tighter">

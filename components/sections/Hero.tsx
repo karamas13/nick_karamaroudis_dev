@@ -27,24 +27,24 @@ export default function Hero() {
     });
   }, { scope: container });
 
-  const title = "Software Engineer".split("");
+  const title = "Welcome".split("");
 
   return (
-    <section ref={container} className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[#050505] z-10">
+    <section ref={container} className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[#050505] z-10 px-4 sm:px-8">
       {/* 1. Subtle particle/noise gradient background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,#050505_20%,transparent_95%)] pointer-events-none -z-10 opacity-90" />
 
       {/* 2. Dark Radial Vignette Plate (Isolates text for high legibility) */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,#050505_20%,transparent_100%)] pointer-events-none -z-10 opacity-90" />
 
-      {/* Main Heading Mask */}
-      <h1 ref={textRef} className="text-7xl md:text-[9vw] font-black uppercase tracking-tighter leading-none flex overflow-hidden drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
+      {/* Main Heading Mask (Responsive wrapping & text sizing) */}
+      <h1 ref={textRef} className="text-5xl sm:text-7xl md:text-[9vw] font-black uppercase tracking-tighter leading-none flex flex-wrap justify-center overflow-visible drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] max-w-7xl text-center">
         {title.map((char, index) => (
           <motion.span
             key={index}
             initial={{ y: "100%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: index * 0.05, ease: [0.76, 0, 0.24, 1] }}
+            transition={{ duration: 0.8, delay: index * 0.03, ease: [0.76, 0, 0.24, 1] }}
             className="inline-block"
           >
             {char === " " ? "\u00A0" : char}
@@ -52,8 +52,8 @@ export default function Hero() {
         ))}
       </h1>
       
-      {/* Subtitle with contrast protection */}
-      <p className="font-mono text-neutral-400 mt-6 tracking-widest text-sm md:text-base relative z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+      {/* Subtitle with contrast protection & responsive text sizing */}
+      <p className="font-mono text-neutral-400 mt-8 tracking-widest text-xs sm:text-sm md:text-base relative z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-center">
         SCROLL TO EXPLORE MY PORTFOLIO
       </p>
     </section>
