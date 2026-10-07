@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import { motion } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -13,7 +12,22 @@ export default function Hero() {
   const textRef = useRef<HTMLHeadingElement>(null);
 
   useGSAP(() => {
-    // Parallax fade and scale out on scroll
+    if (!textRef.current) return;
+
+    // Fast entrance animation (replaces Framer Motion delay to fix LCP)
+    gsap.fromTo(
+      textRef.current.children,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.03,
+        ease: "power3.out",
+      }
+    );
+
+    // Parallax fade, scale, and blur out on scroll
     gsap.to(textRef.current, {
       scale: 3,
       opacity: 0,
@@ -30,29 +44,32 @@ export default function Hero() {
   const title = "Welcome".split("");
 
   return (
-    <section ref={container} className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[#050505] z-10 px-4 sm:px-8">
+    <section 
+      ref={container} 
+      className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[#050505] z-10 px-4 sm:px-8"
+    >
       {/* 1. Subtle particle/noise gradient background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,#050505_20%,transparent_95%)] pointer-events-none -z-10 opacity-90" />
 
-      {/* 2. Dark Radial Vignette Plate (Isolates text for high legibility) */}
+      {/* 2. Dark Radial Vignette Plate */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,#050505_20%,transparent_100%)] pointer-events-none -z-10 opacity-90" />
 
-      {/* Main Heading Mask (Responsive wrapping & text sizing) */}
-      <h1 ref={textRef} className="text-5xl sm:text-7xl md:text-[9vw] font-black uppercase tracking-tighter leading-none flex flex-wrap justify-center overflow-visible drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] max-w-7xl text-center">
+      {/* Main Heading (Instant paint for optimal LCP score) */}
+      <h1 
+        ref={textRef} 
+        className="text-5xl sm:text-7xl md:text-[9vw] font-black uppercase tracking-tighter leading-none flex flex-wrap justify-center overflow-visible drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] max-w-7xl text-center will-change-transform"
+      >
         {title.map((char, index) => (
-          <motion.span
+          <span
             key={index}
-            initial={{ y: "100%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: index * 0.03, ease: [0.76, 0, 0.24, 1] }}
-            className="inline-block"
+            className="inline-block text-white"
           >
             {char === " " ? "\u00A0" : char}
-          </motion.span>
+          </span>
         ))}
       </h1>
       
-      {/* Subtitle with contrast protection & responsive text sizing */}
+      {/* Subtitle */}
       <p className="font-mono text-neutral-400 mt-8 tracking-widest text-xs sm:text-sm md:text-base relative z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-center">
         SCROLL TO EXPLORE MY PORTFOLIO
       </p>

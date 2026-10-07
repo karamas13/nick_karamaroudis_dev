@@ -69,7 +69,7 @@ export default function Experience() {
   return (
     <section ref={container} className="relative z-10 py-24 sm:py-40 max-w-4xl mx-auto px-4 sm:px-8">
       {/* Neon Timeline SVG - Responsive Positioning */}
-      <svg className="absolute left-[19px] sm:left-[49px] top-0 h-full w-2" preserveAspectRatio="none">
+      <svg className="absolute left-4.75 sm:left-12.25 top-0 h-full w-2" preserveAspectRatio="none">
         <path
           ref={lineRef}
           d="M 1 0 V 4000"
@@ -89,7 +89,7 @@ export default function Experience() {
             {/* Glassmorphism plate isolating text from the glowing timeline line */}
             <div className="bg-black/60 p-5 sm:p-6 backdrop-blur-md border border-neutral-800/80 w-full shadow-xl">
               <p className="font-mono text-[#00F0FF] text-xs sm:text-base mb-2">{job.year}</p>
-              <h3 className="text-2xl sm:text-4xl md:text-6xl font-bold uppercase tracking-tight">{job.role}</h3>
+              <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold uppercase tracking-tight">{job.role}</h1>
               <p className="font-mono text-neutral-400 mt-2 text-sm sm:text-xl">{job.company}</p>
             </div>
           </div>

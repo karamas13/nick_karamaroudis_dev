@@ -18,38 +18,42 @@ interface Project {
   link: string;
   liveUrl: string;
   img: string;
+  mobileImg?: string;
 }
 
 const projects: Project[] = [
   {
     id: "01",
-    title: "DownTheGap",
-    description: "High-performance decentralized execution engine optimized for low-latency operations.",
-    tags: ["C#", "Next.js", "Web3.js", "Tailwind"],
-    longDescription: "DownTheGap is engineered to process massive multi-chain data feeds in real-time. Built with a robust C# backend architecture and a high-frequency Next.js dashboard, it delivers sub-millisecond visualization vectors and state management for high-throughput environments.",
-    link: "https://github.com",
-    liveUrl: "https://example.com",
-    img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop"
+    title: "Chrysus Digital",
+    description: "Chrysus Digital is a high-performance, minimalist landing page delivering AI Voice Agents, custom business automations, and modern web development for Greek enterprises.",
+    tags: ["Typescript", "Next.js", "React", "Tailwind", "FramerMotion"],
+    longDescription: "Built on Next.js App Router and Tailwind CSS, Chrysus Digital transforms business workflows through 24/7 autonomous Greek AI receptionists, CRM integrations, and ultra-fast web applications wrapped in an immersive, high-converting dark design system optimized for SEO and core web vitals.",
+    link: "https://github.com/karamas13/chrysus_digital",
+    liveUrl: "https://chrysusdigital.com/",
+    img: "/chrysusbg.avif",
+    mobileImg: "/chrysusphonebg.avif"
   },
   {
     id: "02",
-    title: "Neon Genesis",
-    description: "Immersive WebGL portfolio and spatial interface with custom shader pipelines.",
-    tags: ["React", "Three.js", "GSAP", "GLSL"],
-    longDescription: "An experimental cyber-brutalist interface exploring spatial typography and real-time lighting shaders. Features custom procedural noise distortion fields and optimized scroll-scrubbed physics pipelines.",
-    link: "https://github.com",
-    liveUrl: "https://example.com",
-    img: "https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?q=80&w=2000&auto=format&fit=crop"
+    title: "Kato Apo To Aylaki",
+    description: "Kato Ap' To Avlaki is an accessible, high-performance full-stack Next.js web application with a Supabase admin backend",
+    tags: ["React", "Next.js", "Postgress", "SupaBase", "Tailwind", "TypeScript"],
+    longDescription: "Built with Next.js App Router, Tailwind CSS, Framer Motion, and Lucide React icons, the platform combines a fast, WCAG AA-compliant frontend with a Supabase administrative backend that empowers site owners to seamlessly manage product catalogs, contact requests, and content in real time.",
+    link: "https://github.com/karamas13/down_the_gap",
+    liveUrl: "https://katwapotoaylaki.gr/",
+    img: "/downthegapbg.avif",
+    mobileImg: "/downthegapphonebg.avif"
   },
   {
     id: "03",
-    title: "Void Interface",
-    description: "Secure, distributed systems telemetry monitor for cloud-native infrastructure.",
-    tags: ["TypeScript", "Node.js", "Python", "Docker"],
-    longDescription: "A comprehensive developer tooling suite designed to track cluster states, memory leakage patterns, and live network packets through a clean, brutalist telemetry dashboard.",
-    link: "https://github.com",
-    liveUrl: "https://example.com",
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop"
+    title: "NB Photography",
+    description: "A fully functional photo-gallery website with features like an image uploader based on categories, image delete feature, and user authentication.",
+    tags: ["React", "Node.js", "FireBase", "Tailwind", "JavaScript"],
+    longDescription: "I developed a responsive photography website featuring categorised galleries for ecosystems, portraits, food, and concerts. Using Firebase, I built secure database authentication for the admin panel and integrated full image upload and deletion capabilities, providing the client with an intuitive, curated, and multi-device showcase for their work.",
+    link: "https://github.com/karamas13/photo-gallery",
+    liveUrl: "https://nikosbriniasphotography.com/",
+    img: "/nbbg.avif",
+    mobileImg: "/nbphonebg.avif"
   },
 ];
 
@@ -86,22 +90,27 @@ export default function Projects() {
       }
     });
 
-    const images = gsap.utils.toArray<HTMLImageElement>(".parallax-img");
-    images.forEach((img) => {
-      gsap.to(img, {
-        x: 150,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: () => "+=" + slider.scrollWidth,
-          scrub: 1,
-        }
+    // Only apply GSAP horizontal parallax offset on desktop viewports to prevent mobile displacement
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 640px)", () => {
+      const images = gsap.utils.toArray<HTMLImageElement>(".parallax-img");
+      images.forEach((img) => {
+        gsap.to(img, {
+          x: 100,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: () => "+=" + slider.scrollWidth,
+            scrub: 1,
+          }
+        });
       });
     });
 
     return () => {
       pinTween.kill();
+      mm.revert();
     };
   }, { scope: sectionRef });
 
@@ -125,13 +134,19 @@ export default function Projects() {
               onMouseEnter={() => setHoverState(true)}
               onMouseLeave={() => setHoverState(false)}
             >
-              <div className="absolute inset-0 w-full h-full overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 -z-10">
-                <img
-                  src={proj.img}
-                  alt={proj.title}
-                  className="parallax-img absolute top-0 -left-16 sm:-left-24 w-[calc(100%+120px)] sm:w-[calc(100%+200px)] h-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent" />
+              {/* Background Container with Parallax & Centered Anchoring */}
+              <div className="absolute inset-0 w-full h-full overflow-hidden grayscale-0 sm:grayscale-60 group-hover:grayscale-0 transition-all duration-700 -z-10">
+                <picture className="absolute inset-0 w-full h-full flex items-center justify-center">
+                  {proj.mobileImg && (
+                    <source media="(max-width: 639px)" srcSet={proj.mobileImg} />
+                  )}
+                  <img
+                    src={proj.img}
+                    alt={proj.title}
+                    className="parallax-img absolute top-0 left-1/2 lg:left-0 lg:translate-x-0 -translate-x-1/2 w-full sm:w-[calc(100%+160px)] h-full object-cover object-center opacity-70 sm:opacity-60 group-hover:opacity-85 group-hover:scale-105 transition-all duration-700"
+                  />
+                </picture>
+                <div className="absolute inset-0 bg-linear-to-t from-[#050505] via-[#050505]/70 to-transparent" />
               </div>
 
               <div className="relative z-10 max-w-2xl">
@@ -166,7 +181,7 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 backdrop-blur-xl p-4 sm:p-6"
+            className="fixed inset-0 z-9999 flex items-center justify-center bg-black/85 backdrop-blur-xl p-4 sm:p-6"
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
@@ -180,7 +195,7 @@ export default function Projects() {
               <div className="flex items-center justify-between p-5 sm:p-8 border-b border-neutral-800/80 bg-[#080808] z-20 shrink-0">
                 <div className="flex items-center gap-2 sm:gap-3 font-mono text-[#00F0FF] text-xs sm:text-sm">
                   <Code2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-                  <span>CASE STUDY // {selectedProject.id}</span>
+                  <span>Project // {selectedProject.id}</span>
                 </div>
 
                 <button
@@ -209,12 +224,35 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="relative w-full h-44 sm:h-64 md:h-80 overflow-hidden border border-neutral-800 shrink-0">
-                  <img
-                    src={selectedProject.img}
-                    alt={selectedProject.title}
-                    className="w-full h-full object-cover"
-                  />
+                {/* Cyber-Brutalist Ambient Backdrop Frame for Mobile & Desktop */}
+                <div className="relative w-full h-72 sm:h-80 md:h-96 overflow-hidden border border-neutral-800 shrink-0 bg-black flex items-center justify-center">
+                  
+                  {/* Layer 1: Ambient Blurred Background (Eliminates Blank Space) */}
+                  <picture className="absolute inset-0 w-full h-full blur-2xl opacity-40 scale-110 pointer-events-none">
+                    {selectedProject.mobileImg && (
+                      <source media="(max-width: 639px)" srcSet={selectedProject.mobileImg} />
+                    )}
+                    <img
+                      src={selectedProject.img}
+                      alt=""
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </picture>
+
+                  {/* Subtle Grid Overlay */}
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-size-[1rem_1rem] pointer-events-none z-10" />
+
+                  {/* Layer 2: Sharp Un-distorted Foreground Image */}
+                  <picture className="relative z-20 h-full w-full flex items-center justify-center p-2 sm:p-4">
+                    {selectedProject.mobileImg && (
+                      <source media="(max-width: 639px)" srcSet={selectedProject.mobileImg} />
+                    )}
+                    <img
+                      src={selectedProject.img}
+                      alt={selectedProject.title}
+                      className="h-full w-auto max-w-full object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)] border border-neutral-800/80 bg-black"
+                    />
+                  </picture>
                 </div>
 
                 <div>
