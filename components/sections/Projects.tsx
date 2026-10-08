@@ -227,7 +227,7 @@ export default function Projects() {
                 {/* Cyber-Brutalist Ambient Backdrop Frame for Mobile & Desktop */}
                 <div className="relative w-full h-72 sm:h-80 md:h-96 overflow-hidden border border-neutral-800 shrink-0 bg-black flex items-center justify-center">
                   
-                  {/* Layer 1: Ambient Blurred Background (Eliminates Blank Space) */}
+                  {/* Layer 1: Ambient Blurred Background */}
                   <picture className="absolute inset-0 w-full h-full blur-2xl opacity-40 scale-110 pointer-events-none">
                     {selectedProject.mobileImg && (
                       <source media="(max-width: 639px)" srcSet={selectedProject.mobileImg} />

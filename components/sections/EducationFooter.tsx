@@ -52,11 +52,11 @@ export default function EducationFooter() {
         ))}
       </div>
 
-      {/* 3. Cyber-Grid Perspective Overlay (Masked to center) */}
+      {/* 3. Cyber-Grid Perspective Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_70%_70%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none z-0" />
 
       {/* Main Content Container */}
-      <div className="relative z-10 text-center flex flex-col items-center">
+      <div className="relative z-10 text-center flex flex-col items-center w-full max-w-7xl">
         
         {/* Title / Role */}
         <p className="font-mono font-bold mb-4 sm:mb-6 text-[#00F0FF] tracking-[0.3em] sm:tracking-[0.5em] text-xs sm:text-xl uppercase drop-shadow-[0_0_8px_rgba(0,240,255,0.5)]">
@@ -65,17 +65,17 @@ export default function EducationFooter() {
         
         {/* Main Header */}
         <div 
-          className="group cursor-pointer mb-8 sm:mb-12"
+          className="group cursor-pointer mb-8 sm:mb-12 w-full"
           onMouseEnter={() => window.dispatchEvent(new CustomEvent("cursor-hover", { detail: { hover: true } }))}
           onMouseLeave={() => window.dispatchEvent(new CustomEvent("cursor-hover", { detail: { hover: false } }))}
         >
-          <h1 className="flex flex-col text-[10vw] sm:text-[11vw] font-black uppercase leading-[0.85] tracking-tighter">
-            <span className="text-transparent bg-clip-text bg-linear-to-b from-white to-neutral-500 group-hover:text-white transition-colors duration-500">
+          <h1 className="flex flex-col items-center justify-center font-black uppercase leading-[0.85] w-full">
+            <span className="text-[13vw] sm:text-[11vw] tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-white to-neutral-500 group-hover:text-white transition-colors duration-500">
               NIKOS
             </span>
             <span 
-              className="text-transparent group-hover:text-[#B026FF] transition-colors duration-500"
-              style={{ WebkitTextStroke: "2px rgba(255,255,255,0.8)" }}
+              className="text-[7.5vw] sm:text-[11vw] tracking-normal sm:tracking-tighter text-transparent group-hover:text-[#B026FF] transition-colors duration-500"
+              style={{ WebkitTextStroke: "1px rgba(255,255,255,0.8)" }}
             >
               KARAMAROUDIS
             </span>
@@ -113,11 +113,8 @@ export default function EducationFooter() {
           </a>
         </div>
 
-          
-        </div>
+      </div>
 
-      
-      
       {/* Bottom Data Bar */}
       <div className="absolute bottom-6 sm:bottom-10 w-full flex flex-col sm:flex-row items-center justify-between gap-2 px-6 md:px-12 font-mono text-xs md:text-sm font-bold text-neutral-500 z-10 text-center sm:text-left">
         <span className="uppercase tracking-widest hover:text-white transition-colors duration-300">
