@@ -19,11 +19,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://nickkaramaroudisdev.com"), 
   title: {
-    default: "Nikos Karamaroudis // Software Engineer",
+    default: "Nikos Karamaroudis | Software Engineer",
     template: "%s // Nikos Karamaroudis",
   },
   description:
-    "Cyber-brutalist software engineering portfolio specializing in Next.js, WebGL, high-frequency execution engines, and reactive UI architecture.",
+    "This is my Personal-Portfolio Website. This website is used to showcase my work and development through an engaging and clean design.",
   keywords: [
     "Nikos Karamaroudis",
     "Software Engineer",
