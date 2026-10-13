@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/upscaled.png" alt="Nick Karamaroudis Logo" width="100%" height="250" style="object-fit: cover; border-radius: 12px;" />
+<img src="public/upscaled.png" alt="Nick Karamaroudis Logo" width="auto" height="auto" style="object-fit: cover; border-radius: 12px;" />
 
 ### ** NIKOS KARAMAROUDIS | SOFTWARE ENGINEER**
 *High-Frequency Reactive Interfaces & Cyber-Brutalist Architecture*
