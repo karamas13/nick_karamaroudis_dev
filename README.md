@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+<img src="public/images/upscaled.png" alt="Nick Karamaroudis Logo" width="100%" height="250" style="object-fit: cover; border-radius: 12px;" />
 
-First, run the development server:
+### **// NIKOS KARAMAROUDIS // SOFTWARE ENGINEER**
+*High-Frequency Reactive Interfaces & Cyber-Brutalist Architecture*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<br>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[![Next.js](https://img.shields.io/badge/NEXT.JS_15-000000?style=for-the-badge&logo=nextdotjs&logoColor=white&borderColor=333333)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TYPESCRIPT-050505?style=for-the-badge&logo=typescript&logoColor=3178C6&borderColor=333333)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/TAILWIND_v4-050505?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4&borderColor=333333)](https://tailwindcss.com/)
+[![GSAP](https://img.shields.io/badge/GSAP_SCROLL-050505?style=for-the-badge&logo=greensock&logoColor=88CE02&borderColor=333333)](https://greensock.com/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<br>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+[🌐 **EXPLORE LIVE PORTFOLIO**](https://nickkaramaroudisdev.com) • [💻 **VIEW GITHUB REPOS**](https://github.com/karamas13) • [🔗 **CONNECT ON LINKEDIN**](https://www.linkedin.com/in/nikos-karamaroudis-06676a233/)
 
-## Learn More
+</div>
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚡ // SYSTEM SPECIFICATIONS & ARCHITECTURE
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+A production-grade, immersive personal portfolio built to break standard UI conventions. Engineered for lightning-fast delivery times, fluid scroll physics, and absolute visual hierarchy.
 
-## Deploy on Vercel
+* **🚀 Zero-Lag LCP Engine:** Bypasses thread-blocking framework entrance delays by rendering critical-path header elements instantly on frame 1.
+* **🌀 Fluid Scroll Physics:** Powered by `React Lenis` inertia wrappers combined with hardware-accelerated GSAP `ScrollTrigger` viewports (`will-change-transform`).
+* **📱 Adaptive Viewport Management:** Seamlessly transitions from desktop horizontal pinning sequences to centered, touch-optimized vertical flows on mobile devices.
+* **🖱️ Hardware-Aware UX:** Custom cursor telemetry that dynamically scales on interactive targets and gracefully terminates on touch-only mobile/tablet hardware.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ // CORE STACK MATRIX
+
+| Layer | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Framework** | Next.js 15 (App Router) | Server-side rendering, SEO metadata, and dynamic routing |
+| **Language** | TypeScript | Strict type safety across components and animation hooks |
+| **Styling** | Tailwind CSS v4 | Cyber-brutalist utility classes, dark theme tokens, & custom grids |
+| **Motion** | GSAP & Framer Motion | High-performance scroll pinning, parallax scaling, and modal transitions |
+| **Optimization** | WebP / AVIF & `picture` | Responsive device-targeted image asset delivery |
+
+---
+
+## 📂 // FEATURED DEPLOYMENTS
+
+* **Chrysus Digital** — Minimalist, high-performance web engineering and autonomous AI receptionist solutions for Greek enterprises.
+  * *Stack:* Next.js, TypeScript, Tailwind CSS, Framer Motion
+  * *Live:* [chrysusdigital.com](https://chrysusdigital.com/)
+* **Kato Ap' To Avlaki** — Accessible, full-stack commerce web application backed by a real-time Supabase administrative backend.
+  * *Stack:* Next.js, Supabase, PostgreSQL, Tailwind CSS
+  * *Live:* [katwapotoaylaki.gr](https://katwapotoaylaki.gr/)
+* **NB Photography** — Curated multi-device photo gallery with secure Firebase admin authentication and category-based storage management.
+  * *Stack:* React, Node.js, Firebase, Tailwind CSS
+  * *Live:* [nikosbriniasphotography.com](https://nikosbriniasphotography.com/)
+
+---
+
