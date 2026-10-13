@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s // Nikos Karamaroudis",
   },
   description:
-    "This is my Personal-Portfolio Website. This website is used to showcase my work and development through an engaging and clean design.",
+    "This is my Personal-Portfolio Website. This website is used to showcase my work and development through an engaging and cdclean design.",
   keywords: [
     "Nikos Karamaroudis",
     "Software Engineer",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: "Nikos Karamaroudis Portfolio",
     images: [
       {
-        url: "/og-image.jpg", // Make sure to place an og-image.jpg inside your /public folder
+        url: "/og-image.jpg", 
         width: 1200,
         height: 630,
         alt: "Nikos Karamaroudis Software Engineer Portfolio",
